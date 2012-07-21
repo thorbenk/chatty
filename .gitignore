@@ -1,0 +1,6 @@
+*.pyc
+*.kdev4
+*kate-swp
+*~
+.project
+.pydevproject
