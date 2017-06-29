@@ -1,12 +1,20 @@
+sudo: false
 language: python
 python:
-   - "2.7"
-install:
-   - sudo apt-get install --assume-yes libboost-serialization-dev libboost-regex-dev libboost-thread-dev libboost-python-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev
-   - sudo apt-get install -y libjpeg-dev libtiff4-dev libpng12-dev cmake
-   - sudo sh .travis_scripts/install_vigra.sh $VIRTUAL_ENV
+    - "2.7"
+addons:
+    apt:
+        packages:
+            - libboost-serialization-dev
+            - libboost-regex-dev
+            - libboost-thread-dev
+            - libboost-python-dev
+            - libboost-system-dev
+            - libboost-filesystem-dev
+            - libboost-test-dev
+            - cmake
+script:
    - mkdir build && cd build
    - cmake -DCMAKE_BUILD_TYPE=Release ..
    - make
-script:
-   - make test
+   - ctest .
