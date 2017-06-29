@@ -3,9 +3,6 @@
 
 #include <sstream>
 #include <iostream>
-#ifdef WITH_VIGRA
-#include <vigra/imageinfo.hxx>
-#endif
 
 BOOST_CLASS_EXPORT_IMPLEMENT(chatty::LogLine) 
 
